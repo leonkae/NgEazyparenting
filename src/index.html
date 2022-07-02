@@ -1,14 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Eazy Parenting</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Eazy Parenting</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-profiles>
+      <div class="profiles">
+        <ul>
+          <li *ngFor="let profile of profiles">
+            <h1>{{profile.bio}}</h1>
+          </li>
+        </ul>
+      </div>
+    </app-profiles>
+    <app-root></app-root>
+  </body>
 </html>
