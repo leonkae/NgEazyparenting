@@ -8,12 +8,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactsComponent } from './contacts/contacts.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
+
+  
 
   ],
   imports: [
@@ -24,7 +27,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     ReactiveFormsModule,
     MatInputModule,
     MatAutocompleteModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
 
   
 

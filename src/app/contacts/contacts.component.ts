@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup} from '@angular/forms';
+import { filter } from 'rxjs';
 import { EmergencyService } from '../emergency.service';
 
 @Component({
@@ -40,6 +41,7 @@ export class ContactsComponent implements OnInit {
     this.filteredOptions = this.options.filter (country => {
       return country.toLowerCase().indexOf(enteredData.toLowerCase()) > -1;
     })
+    console.log(this.filteredOptions)
   }
 
   getCountry(){
@@ -47,6 +49,10 @@ export class ContactsComponent implements OnInit {
       this.options = response;
       this.filteredOptions =response;
     })
+  }
+
+  showCountries(){
+    console.log(this.filteredOptions)
   }
 
 }

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EmergencyService {
 
+
   constructor(private http: HttpClient) { }
 
   getData(){
