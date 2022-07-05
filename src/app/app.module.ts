@@ -9,14 +9,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactsComponent } from './contacts/contacts.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { ProfilesComponent } from './profiles/profiles.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsComponent,
-
-  
+    ProfilesComponent,
 
   ],
   imports: [
@@ -32,6 +31,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
   
 
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
