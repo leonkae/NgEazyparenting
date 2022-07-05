@@ -6,14 +6,18 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ServService {
+export class EmergencyService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getData(){
     return this.http.get('https://africa-emergency-contacts.herokuapp.com/all/')
-      .pipe(
-        map((response:[]) => response.map(item => item['Country']))
-      )
+      // .pipe(
+      //   map((response:[]) => response.map(country => country['Country']))
+      // )
   }
+
 }
+
+
+
