@@ -1,0 +1,160 @@
+<div class="container medical-hub">
+  <h4>Medical Hub</h4>
+
+  <!-- <div class="container posts">
+    <div class="row">
+      <div class="col-md-7">
+
+      </div>
+    </div>
+
+  </div> -->
+
+  <div class="container posts">
+    <div class="row">
+
+      <div class="col-md-8">
+        <div class="user-credentials">
+          <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
+          <p><strong>Username</strong></p>
+        </div>
+
+        <div class="post-image">
+          <img src="../../assets/images/sample_post.jpeg" alt="Post Image" data-toggle="modal"
+            data-target="#commentsModal" />
+        </div>
+
+        <div class="actions-n-time">
+          <div class="actions">
+            <div class="likes">
+              <i class="far fa-heart"></i>
+              <p class="like-count"><strong>10</strong></p>
+            </div>
+
+            <div class="comments">
+              <i class="far fa-comments"></i>
+              <p class="comment-count"><strong>10</strong></p>
+            </div>
+          </div>
+
+          <div class="time">
+            <p>Posted <strong>2 hours </strong> ago</p>
+          </div>
+        </div>
+
+        <div class="caption">
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+          </p>
+        </div>
+
+        <div class="comments-btn" data-toggle="modal" data-target="#commentsModal">
+          <h6 id="viewComments">View Comments</h6>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Comments Modal -->
+        <div class="main-modal">
+          <div class="modal" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <span class="close" data-dismiss="modal">&times;</span>
+
+            <div id="container">
+              <div id="row">
+                <div class="col-md-6">
+                  <img class="modal-content" src="../../assets/images/sample_post.jpeg" alt="Post Image">
+                </div>
+
+                <div class="col-md-6 right">
+                  <div class="modal-user-credentials">
+                    <img src="../../assets/images/person.jpeg" alt="Profile Image" />
+                    <p><strong>Username</strong></p>
+                  </div>
+
+                  <div class="modal-caption">
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                      Aenean massa.</p>
+                  </div>
+
+                  <hr>
+
+                  <div class="all-comments">
+
+                    <!-- {% for com in comments %} -->
+
+                    <!-- {% if post.id == com.post.id %} -->
+                    <div class="comments-section">
+                      <img src="../../assets/images/person.jpeg" alt="Profile Image" />
+
+                      <div class="comments-info">
+                        <div class="username-n-date">
+                          <p><strong>Username</strong></p>
+                          <p class="date"><strong>08/04/2022</strong></p>
+                        </div>
+
+                        <p class="comment">Lorem ipsum dolor sit amet, consectetuer adip elit.</p>
+                      </div>
+                    </div>
+                    <!-- {% endif %}
+  
+                    {% endfor %} -->
+
+                  </div>
+
+                  <!-- {% if user.is_authenticated and user.id != post.user.id %} -->
+                  <!-- Modal Comment Form -->
+                  <form action="#" method="POST">
+                    <!-- {% csrf_token %} -->
+                    <input class="form-control mr-sm-2" type="text" placeholder="Add a comment" name="comment">
+                    <button class="add-comment-btn" type="submit">POST</button>
+                  </form>
+                  <!-- {% endif %} -->
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <hr>
+
+        <!-- {% if user.is_authenticated and user.id != post.user.id %} -->
+        <!-- Post Comment Form -->
+        <form action="#" method="POST">
+          <!-- {% csrf_token %} -->
+          <input class="form-control mr-sm-2" type="text" placeholder="Add a comment" name="comment">
+          <button class="add-comment-btn" type="submit">POST</button>
+        </form>
+        <!-- {% endif %} -->
+
+      </div>
+
+    </div>
+  </div>
+</div>
