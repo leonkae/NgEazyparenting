@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  DEV_URL: 'http://localhost:8000/api',
-  EMERGENCY_URL: 'http://localhost:8000/emergency'
+  BASE_URL: 'https://africa-emergency-contacts.herokuapp.com/all/',
+  DEV_URL: 'http://localhost:8000/all',
+ 
 };
 
 /*
