@@ -1,0 +1,81 @@
+/* The Main Div */
+.navbar {
+  background-color: #b8e0fc96;
+  position: sticky;
+  top:0;
+}
+
+/* All the Navbar Info */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo + Toggle Button */
+.navbar .container-fluid {
+  border: 0px solid blue;
+}
+
+/* Logo */
+.navbar-brand {
+  float: left;
+}
+
+/* Toggle Button */
+.navbar .container-fluid button {
+  float: right;
+}
+
+/* Toggle Button Info */
+.navbar-collapse {
+  margin-left: 60px;
+  margin-right: 60px;
+ 
+}
+
+/* Active Nav Item */
+.active {
+  border: 2px solid #F4C7D9;
+  width: 100px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  background-color: black;
+  position: relative;
+}
+
+.dropdown-menu a {
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  color: black;
+}
+
+.dropdown-item {
+  transition: 0.5s;
+}
+
+.dropdown-item:hover {
+  background-image: linear-gradient(to right,  #B6EDD0, #F4C7D9);
+}
+
+.login-btn a {
+  background-color: #F4C7D9;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.login-btn a:hover {
+  background-color: black;
+  color: white;
+}

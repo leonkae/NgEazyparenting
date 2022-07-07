@@ -1,0 +1,125 @@
+<div class="medical-hub">
+  <div class="container">
+    <h4>Medical Hub</h4>
+
+    <!-- Add Post Button -->
+    <button class="btn btn-lg btn-outline-primary" (click)="openModal(addPost)">ADD POST</button>
+
+     <!-- Add Post Modal -->
+    <ng-template #addPost let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Create New Post</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+      </div>
+
+       <!-- UPLOAD POST FORM SECTION-->
+       <div class="modal-body">
+        <form [formGroup]="formValue" enctype="multipart/form-data"> 
+
+          <div class="form-group">
+            <label>Upload Image</label><br>
+            <input type="file" class="form-control-file" formControlName="image">
+          </div>
+
+          <div class="form-group">
+            <label>Image Caption</label>
+            <textarea type="text" class="form-control" formControlName="caption"></textarea>
+          </div>
+
+          <button type="submit" class="upload-btn" (click)="addHubPost()">UPLOAD</button>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
+      </div>
+    </ng-template>
+  
+    <div class="container posts">
+      <div class="row">
+  
+        <div class="col-md-8">
+          <div class="user-credentials">
+            <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
+            <p><strong>Username</strong></p>
+          </div>
+  
+          <div class="post-image">
+            <img src="../../assets/images/sample_post.jpeg" alt="Post Image" data-toggle="modal"
+              data-target="#commentsModal" />
+          </div>
+  
+          <div class="actions-n-time">
+            <div class="actions">
+              <div class="likes">
+                <i class="far fa-heart"></i>
+                <p class="like-count"><strong>10</strong></p>
+              </div>
+  
+              <div class="comments">
+                <i class="far fa-comments"></i>
+                <p class="comment-count"><strong>10</strong></p>
+              </div>
+            </div>
+  
+            <div class="time">
+              <p>Posted <strong>2 hours </strong> ago</p>
+            </div>
+          </div>
+  
+          <div class="caption">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+  
+          <!-- Comments Button -->
+          <div class="comments-btn" (click)="open(content)">
+            <h6 id="viewComments">View Comments</h6>
+          </div>
+  
+          <!-- Comments Modal Content -->
+          <ng-template #content let-modal>
+            <div class="com-modal">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Post Comments</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+              </div>
+              <div class="modal-body">
+                <div class="comments-section">
+                  <img src="../../assets/images/person.jpeg" alt="Profile Image" />
+    
+                  <div class="comments-info">
+                    <div class="username-n-date">
+                      <p><strong>Username</strong></p>
+                      <p class="date"><strong>08/04/2022</strong></p>
+                    </div>
+    
+                    <p class="comment">Lorem ipsum dolor sit amet, consectetuer adip elit.</p>
+                  </div>
+                </div>
+  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
+              </div>
+            </div>
+          </ng-template>
+  
+          <hr>
+  
+          <!-- {% if user.is_authenticated and user.id != post.user.id %} -->
+          
+          <!-- Post Comment Form -->
+          <form action="#" method="POST">
+            <!-- {% csrf_token %} -->
+            <input class="form-control mr-sm-2" type="text" placeholder="Add a comment" name="comment">
+            <button class="add-comment-btn" type="submit">POST</button>
+          </form>
+          <!-- {% endif %} -->
+  
+        </div>
+  
+      </div>
+    </div>
+  </div>
+</div>
