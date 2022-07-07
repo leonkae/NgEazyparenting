@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MedicalHubComponent } from './medical-hub/medical-hub.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

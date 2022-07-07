@@ -1,4 +1,9 @@
 /* Post Section */
+.medical-hub{
+  height: 1000px;
+  background-color: #f4c7d94f;
+}
+
 .posts {
   margin-top: 50px;
 }
@@ -136,6 +141,10 @@
 }
 
 /* COMMENTS MODAL SECTION */
+.com-modal {
+  background-color: #eaf4fc96;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
