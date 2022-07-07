@@ -1,0 +1,46 @@
+<div class="full-body">
+  <div class="container">
+    <div class="task-wrapper">
+      <div class="task-title" *ngIf="tasks">
+        <h1>My tasks</h1>
+      </div>
+
+      <div class="form">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+              Add Task
+            </label>
+
+            <input
+              [(ngModel)]="taskname"
+              name="taskname"
+              class="form-control mt-2"
+              id="taskname"
+              placeholder="Enter task name"
+            />
+
+            <input
+              [(ngModel)]="taskdescription"
+              name="taskdescription"
+              class="form-control mt-2"
+              id="taskname"
+              placeholder="Enter Task description"
+            />
+
+            <div class="buttons-wrapper">
+              <button type="submit" id="btn" class="btn btn-primary">
+                add
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="task-detail" *ngFor="let task of tasks">
+        <h3>{{ task.taskname }}</h3>
+        <p>{{ task.taskdescription }}</p>
+      </div>
+    </div>
+  </div>
+</div>

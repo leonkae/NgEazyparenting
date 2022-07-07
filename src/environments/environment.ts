@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  DEV_URL: 'http://localhost:8000/api',
+  API_URL: 'http://localhost:8000/api',
+  TASKS_URL:' http://127.0.0.1:8000/api/tasks/',
+  ACCOUNTS_URL : 'http://localhost:8000/accounts'
 };
 
 /*
