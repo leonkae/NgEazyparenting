@@ -5,7 +5,6 @@ import { ContactsComponent } from './contacts/contacts.component';
 
 const routes: Routes = [
   { path: 'profiles', component: ProfilesComponent },
-  { path: 'contacts', component: ContactsComponent}
 ];
 
 @NgModule({
