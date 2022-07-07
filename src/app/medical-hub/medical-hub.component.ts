@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder,FormGroup} from '@angular/forms'
-import {MedicalHub} from 'src/app/models/MedicalHub'
 import { HubService } from './shared/hub.service';
+import { MedicalHub } from './medical-hub.model';
 
 @Component({
   selector: 'app-medical-hub',
@@ -35,7 +35,7 @@ export class MedicalHubComponent implements OnInit {
 
     this.hubServervice.addPost(this.medicalHubObj)
     .subscribe(res=>{
-      .console.log(res);
+      console.log(res);
       alert("Post Added Successfully")   
     },
     err=>{
