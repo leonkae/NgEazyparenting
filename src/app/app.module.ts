@@ -7,6 +7,7 @@ import { ProfilesComponent } from './profiles/profiles.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

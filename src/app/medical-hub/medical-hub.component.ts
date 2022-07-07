@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder,FormGroup} from '@angular/forms'
+import {MedicalHub} from 'src/app/models/MedicalHub'
+import { HubService } from './shared/hub.service';
 
 @Component({
   selector: 'app-medical-hub',
@@ -13,10 +16,31 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class MedicalHubComponent implements OnInit {
   closeResult = '';
+  formValue !: FormGroup;
+  medicalHubObj : MedicalHub = new MedicalHub()
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private formBuilder:FormBuilder, private hubServervice : HubService) {}
 
   ngOnInit(): void {
+    this.formValue = this.formBuilder.group({
+      image : [''],
+      caption : ['']
+    })
+  }
+
+  // ADDING A POST
+  addHubPost(){
+    this.medicalHubObj.image = this.formValue.value.image;
+    this.medicalHubObj.caption = this.formValue.value.caption;
+
+    this.hubServervice.addPost(this.medicalHubObj)
+    .subscribe(res=>{
+      .console.log(res);
+      alert("Post Added Successfully")   
+    },
+    err=>{
+      alert("An error occured!")
+    })
   }
 
   open(content) {
@@ -25,6 +49,10 @@ export class MedicalHubComponent implements OnInit {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+  }
+
+  openModal(addPost){
+    this.modalService.open(addPost, {centered:true})
   }
 
   private getDismissReason(reason: any): string {
