@@ -1,0 +1,11 @@
+.body-wrapper{
+    border:solid white;
+    height: 900px;
+    background-image: url("../../assets/emer.webp");
+}
+
+.form-control{
+    width: 400px;  
+}
+
+

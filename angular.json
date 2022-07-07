@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "eazypfrontend"
+  "cli": {
+    "analytics": "d24a0659-16a0-4b55-87d3-0e72c7f34e17"
+  }
 }
