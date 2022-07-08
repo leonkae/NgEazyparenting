@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import {RegistrationService} from "../registration.service"
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,23 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  form!: FormGroup;
-  constructor() { }
+  username:string = ""
+  password:string = ""
+  constructor(private registerService:RegistrationService, private router:Router) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      username: new FormControl(''),
-      password: new FormControl('')
-    });
   }
 
   onSubmit() {
-    console.warn(this.form.value)
+    const credentials ={
+      username:this.username,
+      password:this.password
+    }
+    this.registerService.userLogin(credentials).subscribe(user => {
+      console.log(user)
+      this.router.navigate(["/profile"])
+    })
+
   }
 
 }
