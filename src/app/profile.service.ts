@@ -17,6 +17,6 @@ export class ProfileService {
   constructor(private http: HttpClient, private router: Router) {}
 
   getProfiles(): Observable<Profile[]> {
-    return this.http.get<Profile[]>(`${this.url}/profiles`);
+    return this.http.get<Profile[]>(`${this.url}`);
   }
 }
