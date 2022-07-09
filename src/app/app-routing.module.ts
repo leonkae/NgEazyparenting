@@ -1,13 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfilesComponent } from './profiles/profiles.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
+
+
 
 const routes: Routes = [
+  {
+    path:'login', component: LoginComponent
+  },
+  {
+    path:'signup', component: SignupComponent
+  },
+  {
+    path:'profile', component: ProfileComponent
+  },
+  
 
-  { path: 'profiles', component: ProfilesComponent },
   { path: 'landing', component: LandingComponent },
+
   { path:'landing/contactus', component:ContactusComponent },
 ];
 

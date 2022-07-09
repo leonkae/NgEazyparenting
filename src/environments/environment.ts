@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
-  DEV_URL: 'http://localhost:8000/accounts/profile/1',
+  REG_URL: 'http://localhost:8000/accounts/login/',
+  SIGN_URL: 'http://localhost:8000/accounts/registration/',
+  API_TOKEN: 'http://localhost:8000/api/token/',
+  PROF_URL: 'http://localhost:8000/accounts/profile/',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file
