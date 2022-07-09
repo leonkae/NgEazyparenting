@@ -11,12 +11,12 @@ import {ProfileService} from 'src/app/profile.service'
 export class ProfilesComponent implements OnInit {
 
   constructor(private profileService: ProfileService) { }
-  profiles: Profile []=[] 
+  profile: Profile []=[] 
 
   ngOnInit(): void {
     this.get_profiles()
   }
   get_profiles(){
-    this.profileService.getProfiles().subscribe((profiles)=> (this.profiles = profiles))
+    this.profileService.getProfiles().subscribe((profile)=> (this.profile = profile))
   }
 }
