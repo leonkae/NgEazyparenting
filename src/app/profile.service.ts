@@ -53,5 +53,5 @@ export class ProfileService {
     const item = localStorage.getItem(key);
     if (key === 'profile' && item != null) return JSON.parse(item);
     return item;
-  }
+   }
 }

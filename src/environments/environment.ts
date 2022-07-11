@@ -8,6 +8,7 @@ export const environment = {
   SIGN_URL: 'http://localhost:8000/accounts/registration/',
   API_TOKEN: 'http://localhost:8000/api/token/',
   PROF_URL: 'http://localhost:8000/accounts/profile',
+  DEV_URL: 'http://localhost:8000/accounts/profile/1',
 };
 
 /*
