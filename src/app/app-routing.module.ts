@@ -4,6 +4,8 @@ import { MedicalHubComponent } from './medical-hub/medical-hub.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   { path: 'explorer', component: MedicalHubComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   {
     path:'profile/:user.id', component: ProfileComponent
   },
+  { path: 'landing', component: LandingComponent },
+  { path:'landing/contactus', component:ContactusComponent },
 ]
 
 @NgModule({
