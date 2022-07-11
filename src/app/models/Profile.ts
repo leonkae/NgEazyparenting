@@ -4,4 +4,5 @@ export interface Profile {
     user: User;
     bio: string;
     image: string;
+    url: string;
 }

@@ -31,6 +31,15 @@ export class ProfileComponent implements OnInit {
   profiles :Profile[] = []
 
   ngOnInit(): void {
+    this.userrr = this.regService.user.subscribe((data: User) => {
+      console.log(data)
+      this.userr = data
+    })
+    this.get_profiles()
+  }
+
+  get_profiles(){
+    this.regService.getProfiles().subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
   }
 
   onSubmit() {
@@ -48,10 +57,10 @@ export class ProfileComponent implements OnInit {
     this.profService.getProf().subscribe(user => {
       console.log(user)
     })
-    this.userrr = this.regService.user.subscribe((data: User) => {
-      console.log(data)
-      this.userr = data
-    })
+    // this.userrr = this.regService.user.subscribe((data: User) => {
+    //   console.log(data)
+    //   this.userr = data
+    // })
   }
 
 

@@ -10,6 +10,7 @@ import {RegistrationService} from "../registration.service"
 export class LoginComponent implements OnInit {
   username:string = ""
   password:string = ""
+
   constructor(private registerService:RegistrationService, private router:Router) { }
 
   ngOnInit(): void {
