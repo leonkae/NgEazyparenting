@@ -68,14 +68,55 @@
   {{username}}
 </div> -->
 
-<div class="profiles">
+<!-- <div class="profiles">
   <ul>
     <li *ngFor="let profile of profiles">
-      <h1>{{profile.user.id}}</h1>
+      <h1>{{profile.bio}}</h1>
     </li>
   </ul>
+</div> -->
+
+<div class="container"  >
+   <div class="profiles">
+    <ul>
+      <li>
+        <h1>{{profiles.child_p.weight}}</h1>
+        <img src="{{profiles.image}}" alt="prof">
+      </li>
+    </ul>
+  </div> 
+
+
+  <div style="margin-top: 30px; margin-left: 90px" class="row">
+    
+    <div class="col-lg-6 col-md-6 col-sm-12">
+      <div class="prof-body">
+        <form
+          style="color: #000000"
+          action=""
+          method="post"
+          enctype="multipart/form-data"
+        >
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <input type="text" class="form-control" name="bio" id="bio" placeholder="Bio" formControlName="bio">
+        </div>
+        <div class="form-group">
+          <label for="phone-number">Phone number</label>
+          <input type="number" class="form-control" name="phone-number" id="phone-number" placeholder="Phone number" formControlName="phone-number">
+        </div>
+          
+          <div class="form-group text-center mt-4">
+            <button class="btn btn-primary" type="submit" >  Update Profile </button>
+          </div>
+          <input type="hidden" name="next" value="" />
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-
 <h1>hello world</h1>
+<div class="co">
 
+</div>
 

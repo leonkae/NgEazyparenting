@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProfileService } from '../profile.service';
 import { User } from 'src/app/models/User';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
   @Input() user: any;
   username:string = ""
   email:string = ""
@@ -22,13 +22,14 @@ export class ProfileComponent implements OnInit {
   weight:string = ""
   bloodgroup:string = ""
   image:string = ""
-
+  
   userr :User
   userrr :Subscription
   constructor(private profService:ProfileService,private regService:RegistrationService) { }
 
 
-  profiles :Profile[] = []
+  // profiles :Profile[] = []
+  profiles:any
 
   ngOnInit(): void {
     this.userrr = this.regService.user.subscribe((data: User) => {
@@ -39,15 +40,16 @@ export class ProfileComponent implements OnInit {
   }
 
   get_profiles(){
-    this.regService.getProfiles().subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
+    this.regService.getCurrentProfile(this.userr.id).subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
   }
-
+  updateo(){
+    this.regService. updateProf(this.profiles)
+  }
   onSubmit() {
     const credentials ={
       username:this.username,
       email:this.email,
       name:this.name,
-      date:this.date,
       gender:this.gender,
       age:this.age,
       weight:this.weight,
@@ -57,10 +59,13 @@ export class ProfileComponent implements OnInit {
     this.profService.getProf().subscribe(user => {
       console.log(user)
     })
-    // this.userrr = this.regService.user.subscribe((data: User) => {
-    //   console.log(data)
-    //   this.userr = data
-    // })
+    this.userrr = this.regService.user.subscribe((data: User) => {
+      console.log(data)
+      this.userr = data
+    })
+  }
+  ngOnDestroy(){
+    this.userrr.unsubscribe()
   }
 
 

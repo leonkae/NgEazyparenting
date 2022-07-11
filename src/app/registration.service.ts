@@ -67,5 +67,11 @@ export class RegistrationService {
     //   }))
   }
 
+  updateProf(profile:any){
+    return this.http.put(this.url, profile)
+  }
+  getCurrentProfile(id:any){
+    return  this.http.get<Profile[]>(`${this.prof}/${id}/`)
+  }
 
 }
