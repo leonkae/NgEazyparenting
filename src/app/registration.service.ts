@@ -59,13 +59,17 @@ export class RegistrationService {
     localStorage.removeItem("access")
     localStorage.removeItem("refresh")
   }
+
   getProfiles():Observable<Profile[]>{
-    return  this.http.get<Profile[]>('http://localhost:8000/accounts/profile')
+    return  this.http.get<Profile[]>(`${this.prof}`)
     // .pipe(
     //   map((profile:any)=> {
     //     console.log(profile)
     //   }))
   }
 
+  getCurrentProfile(id:any){
+    return  this.http.get<Profile[]>(`${this.prof}/${id}/`)
+  }
 
 }

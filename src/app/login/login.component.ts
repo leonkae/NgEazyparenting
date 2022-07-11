@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {RegistrationService} from "../registration.service"
+import { RegistrationService } from "../registration.service"
 
 @Component({
   selector: 'app-login',
@@ -8,22 +8,22 @@ import {RegistrationService} from "../registration.service"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username:string = ""
-  password:string = ""
+  username: string = ""
+  password: string = ""
 
-  constructor(private registerService:RegistrationService, private router:Router) { }
+  constructor(private registerService: RegistrationService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    const credentials ={
-      username:this.username,
-      password:this.password
+    const credentials = {
+      username: this.username,
+      password: this.password
     }
     this.registerService.userLogin(credentials).subscribe(user => {
       console.log(user)
-      this.router.navigate(["/profile"])
+      this.router.navigate(["profile/"+ user.id ])
     })
 
   }

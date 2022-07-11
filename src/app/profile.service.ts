@@ -32,10 +32,10 @@ export class ProfileService {
   //       return profile;
   //     })
   //   );
-  // }
+  // }${profile.id}
 
   getProf():Observable<Profile[]>{
-    return this.http.get<Profile[]>(`${this.url}/profile/`)
+    return this.http.get<Profile[]>(`${this.url}`)
   }
 
   setLocalStorage(key: string, value: any) {

@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   constructor(private profService:ProfileService,private regService:RegistrationService) { }
 
 
-  profiles :Profile[] = []
+  profile :any
 
   ngOnInit(): void {
     this.userrr = this.regService.user.subscribe((data: User) => {
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   get_profiles(){
-    this.regService.getProfiles().subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
+    this.regService.getCurrentProfile(this.userr.id).subscribe((profile)=> (console.log(profile),this.profile = profile))
   }
 
   onSubmit() {

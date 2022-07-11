@@ -10,7 +10,7 @@ export const environment = {
   REG_URL: 'http://localhost:8000/accounts/login/',
   SIGN_URL: 'http://localhost:8000/accounts/registration/',
   API_TOKEN: 'http://localhost:8000/api/token/',
-  PROF_URL: 'http://localhost:8000/accounts/profile/',
+  PROF_URL: 'http://localhost:8000/accounts/profile',
 };
 
 
