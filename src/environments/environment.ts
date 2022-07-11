@@ -7,7 +7,12 @@ export const environment = {
   BASE_URL: 'https://africa-emergency-contacts.herokuapp.com/all/',
   DEV_URL: 'http://localhost:8000/all',
  
+  REG_URL: 'http://localhost:8000/accounts/login/',
+  SIGN_URL: 'http://localhost:8000/accounts/registration/',
+  API_TOKEN: 'http://localhost:8000/api/token/',
+  PROF_URL: 'http://localhost:8000/accounts/profile/',
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

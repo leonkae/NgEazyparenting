@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ParentingService } from './parenting.service'
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,18 @@ import { Component, OnInit } from '@angular/core';
 
 export class AppComponent {
   title = 'eazypfrontend';
+  msg: any;
+  constructor(private pService: ParentingService){
 
-  
+  }
+  ngOnInit(): void {
+    this.showMessage();
+  }
+
+  showMessage() {
+    this.pService.getMessage().subscribe(data=>{
+      this.msg = data,
+      console.log(this.msg);
+    });
+  }
 }

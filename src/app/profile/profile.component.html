@@ -1,0 +1,81 @@
+
+
+<!-- <div class="row" *ngIf="profiles">
+  <div class="col-md-1"></div>
+  <div class=" col-md-4">
+    <h5 class="heading">Personal Information</h5>
+    <div class="card"> -->
+      <!-- <img src="{{ profiles.image }}" alt="{{ profiles.username }}"> -->
+      <!-- <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="image" class="form-file">Profile Image</label>
+          <input type="file" class="form-control" name="image" [(ngModel)]="image">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="name">
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="username">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="email">
+        </div>
+        <button type="submit" class="btn">EDIT PERSONAL PROFILE</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="col-md-1"></div>
+  <div class=" col-md-4">
+    <h5 class="heading">Baby Information</h5>
+    <div class="card">
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full name</label>
+          <input type="text" name="name" class="form-control" [(ngModel)]="name">
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date of Birth</label>
+          <input type="date" name="date" class="form-control" [(ngModel)]="date">
+        </div>
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <input type="text" name="gender" class="form-control" [(ngModel)]="gender">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" name="age" class="form-control" [(ngModel)]="age">
+        </div>
+        <div class="mb-3">
+          <label for="weight" class="form-label">Weight</label>
+          <input type="text" name="weight" class="form-control" [(ngModel)]="weight">
+        </div>
+        <div class="mb-3">
+          <label for="bloodgroup" class="form-label">Blood Group</label>
+          <input type="text" name="bloodgroup" class="form-control" [(ngModel)]="bloodgroup">
+        </div>
+        <button type="submit" class="btn">EDIT BABY INFO</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<div class="test">
+  {{username}}
+</div> -->
+
+<div class="profiles">
+  <ul>
+    <li *ngFor="let profile of profiles">
+      <h1>{{profile.user.id}}</h1>
+    </li>
+  </ul>
+</div>
+
+<h1>hello world</h1>
+
+

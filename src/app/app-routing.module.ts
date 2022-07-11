@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfilesComponent } from './profiles/profiles.component';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  { path: 'profiles', component: ProfilesComponent },
   { path: 'explorer', component: MedicalHubComponent },
-
-
-
-];
+  {
+    path:'login', component: LoginComponent
+  },
+  {
+    path:'signup', component: SignupComponent
+  },
+  {
+    path:'profile', component: ProfileComponent
+  },
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

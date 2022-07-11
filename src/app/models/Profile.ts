@@ -1,7 +1,8 @@
 import { User } from './User';
 export interface Profile {
-    id: number; 
+    id: number;
     user: User;
     bio: string;
     image: string;
+    url: string;
 }
