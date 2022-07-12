@@ -53,6 +53,8 @@ export class ProfileService {
     const item = localStorage.getItem(key);
     if (key === 'profile' && item != null) return JSON.parse(item);
     return item;
+  }
+  
   getProfiles(): Observable<Profile[]> {
     return this.http.get<Profile[]>(`${this.url}`);
   }

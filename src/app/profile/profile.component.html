@@ -1,19 +1,21 @@
+<div class="row">
+  <div class="col-md-1">
 
+  </div>
 
-<!-- <div class="row" *ngIf="profiles">
-  <div class="col-md-1"></div>
   <div class=" col-md-4">
     <h5 class="heading">Personal Information</h5>
-    <div class="card"> -->
-      <!-- <img src="{{ profiles.image }}" alt="{{ profiles.username }}"> -->
-      <!-- <form (ngSubmit)="onSubmit()">
+    <div class="card">
+      <img src="{{ profile.image }}" alt="{{ profile.user.username }}">
+      
+      <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="image" class="form-file">Profile Image</label>
           <input type="file" class="form-control" name="image" [(ngModel)]="image">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="name">
+          <input type="text" class="form-control" value="sth" name="name" [(ngModel)]="name">
         </div>
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
@@ -32,6 +34,7 @@
   <div class="col-md-1"></div>
   <div class=" col-md-4">
     <h5 class="heading">Baby Information</h5>
+    
     <div class="card">
       <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
@@ -62,16 +65,19 @@
       </form>
     </div>
   </div>
-  <div class="col-md-2"></div>
+
+  <div class="col-md-2">
+
+  </div>
 </div>
-<div class="test">
-  {{username}}
-</div> -->
+
+<h1>{{profile.image}}</h1>
+<h1>sth</h1>
 
 <div class="profiles">
   <ul>
     <li>
-      <h1>{{profile.user.username}}</h1>
+      <h1>{{profile.image}}</h1>
     </li>
   </ul>
 </div>

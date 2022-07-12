@@ -8,18 +8,12 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
+  { path: '', component: LandingComponent },
+  { path:'login', component: LoginComponent },
+  { path:'signup', component: SignupComponent },
+  { path:'contactus', component:ContactusComponent },
   { path: 'explorer', component: MedicalHubComponent },
-  {
-    path:'login', component: LoginComponent
-  },
-  {
-    path:'signup', component: SignupComponent
-  },
-  {
-    path:'profile/:user.id', component: ProfileComponent
-  },
-  { path: 'landing', component: LandingComponent },
-  { path:'landing/contactus', component:ContactusComponent },
+  { path:'profile/:user.id', component: ProfileComponent },
 ]
 
 @NgModule({

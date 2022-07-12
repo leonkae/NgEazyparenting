@@ -20,7 +20,7 @@ import { ContactusComponent } from './contactus/contactus.component';
     MedicalHubComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
     LandingComponent,
     ContactusComponent,
 
