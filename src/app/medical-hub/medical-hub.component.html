@@ -14,7 +14,7 @@
 
        <!-- UPLOAD POST FORM SECTION-->
        <div class="modal-body">
-        <form [formGroup]="formValue" enctype="multipart/form-data"> 
+        <!-- <form [formGroup]="formValue" enctype="multipart/form-data"> 
 
           <div class="form-group">
             <label>Upload Image</label><br>
@@ -27,25 +27,56 @@
           </div>
 
           <button type="submit" class="upload-btn" (click)="addHubPost()">UPLOAD</button>
-        </form>
+        </form> -->
 
+        <div class="form">
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <label for="exampleInputEmail1" class="form-label"> Image </label>
+      
+            <input
+              type="file"
+              name="image"
+              class="form-control mt-2"
+              (change)="uploadFile($event)"
+            />
+            <label for="exampleInputEmail1" class="form-label"> Caption </label>
+      
+            <input
+              [(ngModel)]="description"
+              name="description"
+              class="form-control mt-2"
+              placeholder="add caption"
+            />
+      
+            <div class="buttons-wrapper">
+              <button type="submit" id="btn" class="btn btn-primary">POST</button>
+            </div>
+             
+          </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
       </div>
     </ng-template>
   
+    <!-- <div class="medicalhub" *ngFor="let post of posts">
+      <h3>{{ post.description }}</h3>
+      <img src="{{post.image}}" alt="Image here">
+     
+    </div> -->
+
     <div class="container posts">
       <div class="row">
   
-        <div class="col-md-8">
+        <div class="col-md-8" *ngFor="let post of posts">
           <div class="user-credentials">
             <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
             <p><strong>Username</strong></p>
           </div>
   
           <div class="post-image">
-            <img src="../../assets/images/sample_post.jpeg" alt="Post Image" data-toggle="modal"
+            <img src="{{post.image}}" alt="Post Image" data-toggle="modal"
               data-target="#commentsModal" />
           </div>
   
@@ -68,8 +99,7 @@
           </div>
   
           <div class="caption">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-            </p>
+            <p>{{ post.description }}</p>
           </div>
   
           <!-- Comments Button -->

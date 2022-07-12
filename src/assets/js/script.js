@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  $('.close').click(function(){
-    alert("sth");
+  $('#btn').click(function(){
+    alert("sth")
+    // $('.profile-info').hide()
   })
 
 });

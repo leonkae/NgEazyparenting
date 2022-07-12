@@ -20,3 +20,105 @@ form {
 .form-control {
   background-color: #f3dce5;
 }
+
+.hood-info {
+  border: 2px solid black;
+  width: 500px;
+  height: 400px;
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom: 70px;
+  border-radius: 10px;
+  padding: 0px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.hood-info img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-top: 50px;
+}
+
+.hood-info h3 {
+  font-family: 'Charm', cursive;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.more-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-info .location {
+  margin-right: 20px;
+}
+
+.more-info .fas {
+  font-size: 20px;
+}
+
+.exploreBtn, .exploreBtn:visited {
+  position: relative;
+  border-radius: 15px;
+  padding: 10px;
+  width: 150px;
+  color: black;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.exploreBtn:hover {
+  background: #9AE1FA;
+  color: black;
+  box-shadow: 0 0 50px #9AE1FA;
+  transition-delay: 0.3s;
+  text-decoration: none;
+}
+
+.exploreBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #9AE1FA;
+  border-left: 2px solid #9AE1FA;
+  transition: 0.5s;
+}
+
+.exploreBtn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.exploreBtn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #9AE1FA;
+  border-right: 2px solid #9AE1FA;
+  transition: 0.5s;
+}
+
+.exploreBtn:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}

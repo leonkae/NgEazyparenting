@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder,FormGroup} from '@angular/forms'
-import { HubService } from './shared/hub.service';
-import { MedicalHub } from './medical-hub.model';
+import { MedicalhubService } from '../medicalhub.service';
+import { Medicalhub } from '../models/Medicalhub';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-medical-hub',
@@ -16,31 +16,38 @@ import { MedicalHub } from './medical-hub.model';
 })
 export class MedicalHubComponent implements OnInit {
   closeResult = '';
-  formValue !: FormGroup;
-  medicalHubObj : MedicalHub = new MedicalHub()
+  // formValue !: FormGroup;
+  // medicalHubObj : MedicalHub = new MedicalHub()
+  posts: Medicalhub[] = [];
+  image!: File;
+  description: string = ' ';
+  selectedImage!: any;
 
-  constructor(private modalService: NgbModal, private formBuilder:FormBuilder, private hubServervice : HubService) {}
+  constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService) {}
+
+  // constructor(private modalService: NgbModal, private formBuilder:FormBuilder, private hubServervice : HubService) {}
 
   ngOnInit(): void {
-    this.formValue = this.formBuilder.group({
-      image : [''],
-      caption : ['']
-    })
+    this.medicalhubService
+      .getMedical()
+      .subscribe((posts) => (this.posts = posts));
   }
 
-  // ADDING A POST
-  addHubPost(){
-    this.medicalHubObj.image = this.formValue.value.image;
-    this.medicalHubObj.caption = this.formValue.value.caption;
+  uploadFile(event: any): void {
+    this.selectedImage = event.target.files[0];
+  }
 
-    this.hubServervice.addPost(this.medicalHubObj)
-    .subscribe(res=>{
-      console.log(res);
-      alert("Post Added Successfully")   
-    },
-    err=>{
-      alert("An error occured!")
-    })
+  onSubmit({ value, valid }: NgForm) {
+    const fd = new FormData();
+    if (this.selectedImage) {
+      fd.append('image', this.selectedImage, this.selectedImage.name);
+    }
+    fd.append('description', value.description);
+    this.medicalhubService
+      .postMedical(fd)
+      .subscribe((posts) => this.posts.unshift(posts));
+    // if (this.posts.length > 10) {
+    // }
   }
 
   open(content) {
