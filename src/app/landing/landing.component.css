@@ -154,7 +154,26 @@
 }
 .service{
     background-color: #EAF6FE ;
+    height: 600px;
 }
+
+.service .container {
+    border: 2px solid red;
+    padding-top: 50px;
+}
+
+.service .row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#card{
+    height: 300px;
+    width: 300px;
+    margin-bottom: 50px;
+}
+
 #servis{
     padding: 20px;
 }
