@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { MedicalhubComponent } from './medicalhub/medicalhub.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfilesComponent,
     TasksComponent,
+    MedicalhubComponent,
 
 
   ],

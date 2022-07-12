@@ -12,9 +12,6 @@ import { NgForm } from '@angular/forms';
 })
 
 
-
-
-
 export class TasksComponent implements OnInit {
 
   constructor(private tasksService: TasksService) {}
@@ -22,6 +19,7 @@ export class TasksComponent implements OnInit {
 
   taskname: string = ""
   taskdescription: string =""
+  
 
   ngOnInit(): void {
     this.tasksService
@@ -29,15 +27,10 @@ export class TasksComponent implements OnInit {
 
   }
   
-
-
   onSubmit({value,valid}: NgForm){
     this.tasksService
       .postTask(value)
       .subscribe((task) => (this.tasks.unshift(task)));
 
   }
-
-
-
 }
