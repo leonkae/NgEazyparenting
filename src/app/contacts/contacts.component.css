@@ -1,11 +1,25 @@
 .body-wrapper{
     border:solid white;
     height: 900px;
-    background-image: url("../../assets/emer.webp");
+    background-image: url("../../assets/jpg.jpeg");
+    background-size: cover;
 }
 
 .form-control{
     width: 400px;  
 }
-
+footer{
+    text-align: center;
+    background-color: #EAF6FE ;
+    padding: 10px;
+}
+.foot>.socials{
+    margin-top: 20px;
+}
+.socials ul{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
 
