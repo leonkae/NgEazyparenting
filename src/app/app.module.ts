@@ -6,7 +6,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -16,6 +15,13 @@ import { TasksComponent } from './tasks/tasks.component';
 import { MedicalhubComponent } from './medicalhub/medicalhub.component';
 import { RegistrationService } from './registration.service';
 import { AuthInterceptor } from './auth.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactsComponent } from './contacts/contacts.component';
+// import { ProfilesComponent } from './profiles/profiles.component';
+import { SearchPipe } from './search.pipe';
+
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -30,7 +36,9 @@ import { AuthInterceptor } from './auth.interceptor';
     ContactusComponent,
     TasksComponent,
     MedicalhubComponent,
-  
+    ContactsComponent,
+    SearchPipe,
+    
 
   ],
 
@@ -41,7 +49,6 @@ import { AuthInterceptor } from './auth.interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
- 
   ],
   providers: [RegistrationService,{
     provide:HTTP_INTERCEPTORS,
