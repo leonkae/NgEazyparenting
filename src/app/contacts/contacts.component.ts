@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { filter } from 'rxjs';
+import { Component, OnInit    } from '@angular/core';
+import {from,Subject}from 'rxjs';
 import { EmergencyService } from '../emergency.service';
-import {Country} from 'src/app/models/Country';
+import { debounceTime,distinctUntilChanged } from 'rxjs/operators';
+import { Country } from '../models/Country';
 
 @Component({
   selector: 'app-contacts',
@@ -10,51 +10,47 @@ import {Country} from 'src/app/models/Country';
   styleUrls: ['./contacts.component.css']
 })
 export class ContactsComponent implements OnInit {
+  private subjectKeyUp = new Subject<any>();
+  countries$:any;
 
-  options:any = [];
-
-  // options = ["country"];
-
-  filteredOptions:any=[];
-
-  formGroup : FormGroup;
-  constructor(private service :EmergencyService) { }
-  countries: Country []=[] 
-
-
-
-  ngOnInit() {
-    // this.initForm();
-    this.getCountry();
-
-  }
-
-  initForm() {
-    //   this.formGroup = this.fb.group({
-    //     'country': ['']
-    // })
-    this.formGroup.get('country').valueChanges.subscribe(response => {
-      console.log('data is' ,response);
-      this.filterData(response);
-    })
-  }
   
-  filterData(enteredData){
-    this.filteredOptions = this.options.filter (country => {
-      return country.toLowerCase().indexOf(enteredData.toLowerCase()) > -1;
-    })
-    console.log(this.filteredOptions)
+
+
+  constructor(private emergencyService: EmergencyService){}
+
+
+  ngOnInit():void{
+    this.subjectKeyUp
+      .pipe(debounceTime(1000),distinctUntilChanged())
+      .subscribe((data) => {
+        this.getCountry(data);
+      });
+           
+  }
+  onSearch($event:any){
+    const value = $event.target.value;
+    if(value === ''){
+      // this.subjectKeyUp.next("");  
+      this.countries$='' 
+    }
+    if (value){
+      this.subjectKeyUp.next(value);
+    }
+    
   }
 
-  getCountry(){
-    this.service.getData().subscribe(response => {
-      this.options = response;
-      this.filteredOptions = response;
-    })
+  getCountry(value:string){
+    this.emergencyService.getCountry(value).subscribe(countries => this.countries$ = countries);
   }
-
   showCountries(){
-    console.log(this.filteredOptions)
+    console.log(this.onSearch)
   }
+
+  
+
+  
+
+
+
 
 }

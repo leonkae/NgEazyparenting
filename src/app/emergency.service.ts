@@ -1,21 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmergencyService {
-  url: string = environment.BASE_URL;
+  constructor(private httpClient: HttpClient){}
 
-  constructor(private http : HttpClient) { }
-
-  getData(){
-    return this.http.get(this.url)
-
-  }  
+  getCountry(value: string): Observable<any> {
+    return this.httpClient.get(`https://africa-emergency-contacts.herokuapp.com/search?q=${value}`)
+      //  .pipe(map((data:any) => data.countries));
+  }
 }
 

@@ -1,33 +1,30 @@
 <div class="body-wrapper">
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-
-      <ul class="nav justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">@username</a>
-        </li>
-      </ul>
-    </div>
-      
-  </nav> 
   <div class="px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold">Got an <strong style="color:#9AE1FA;">EMERGENCY</strong>?</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4"><strong style="font-size:25px;">Keep calm. Help is just a click away!</strong><br>Select a Country</p>
+      <p class="lead mb-4"><strong style="font-size:25px;">Keep calm. Help is just a click away!</strong></p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <select class="form-control ">
-          <option *ngFor="let country of filteredOptions"[value]="country.dispatch" >{{country.name}} -  {{country.dispatch}} </option>
-        </select>
+
+<section class="container">
+  <div class="row">
+    <div class="col-100">
+      <div class="input-box">
+        <label for="search">Search</label>
+        <input type="text" (keyup)="onSearch($event)" />
+      </div>
+    </div>
+    <div class="col-100 py-20">
+      <ul class="list-group" *ngIf="countries$">
+        <li class="list-item" *ngFor="let country of countries$ ">
+
+          <p>
+            {{country.name}} - {{country.dispatch}}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
       </div>
     </div>
   </div>
@@ -42,13 +39,6 @@
 <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
    <p>@2022 Eazy Parenting. All rights reserved</p>
 </div>   
-
-
-
- 
-   
-    
-
 
 
 
