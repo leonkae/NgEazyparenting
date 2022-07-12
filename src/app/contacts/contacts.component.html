@@ -15,12 +15,12 @@
     </div>
     <div class="col-100 py-20">
       <ul class="list-group" *ngIf="countries$">
-        <li class="list-item" *ngFor="let country of countries$ ">
+        <ol class="list-item" *ngFor="let country of countries$ ">
 
           <p>
             {{country.name}} - {{country.dispatch}}
           </p>
-        </li>
+        </ol>
       </ul>
     </div>
   </div>
