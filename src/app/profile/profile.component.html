@@ -1,12 +1,10 @@
-<div class="row">
-  <div class="col-md-1">
-
-  </div>
+<a class="nav-link mr-30" style=" cursor: pointer" id="nav-link" (click)="onLogout()" >Logout</a >
+ <div class="row" *ngIf="profiles">
 
   <div class="hood-info">
-    <img src="{{ profile.image }}" alt="{{ profile.user.username }}">
+    <img src="{{ profiles.image }}" alt="{{ profiles.user.username }}">
 
-    <h3>{{profile.user.username}}</h3>
+    <h3>{{profiles.user.username}}</h3>
     <p style="margin-bottom: 30px;">My Bio</p>
 
     <a id="btn" class="exploreBtn" href="">EDIT PROFILE</a>
@@ -17,7 +15,7 @@
     <div class=" col-md-4">
       <h5 class="heading">Personal Information</h5>
       <div class="card">
-        <img src="{{ profile.image }}" alt="{{ profile.user.username }}">
+        <img class="rounded-circle" height="200px" width="200px" src="{{ profiles.image }}" alt="{{ profiles.username }}">
         
         <form (ngSubmit)="onSubmit()">
           <div class="mb-3">
@@ -89,8 +87,5 @@
       <h1>{{profile.image}}</h1>
     </li>
   </ul>
-</div>
-
-<h1>hello world</h1> -->
-
+</div> -->
 

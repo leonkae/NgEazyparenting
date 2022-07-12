@@ -4,3 +4,10 @@
 .form-control {
   background-color: #b8e0fc4d;
 }
+.wrapper{
+  background-image: linear-gradient(#b8e0fc, #f4c7d9, #b6edd0);
+  height: 979px;
+}
+#cont {
+  margin-top: 250px;
+}

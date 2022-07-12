@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -14,6 +14,9 @@ import { LandingComponent } from './landing/landing.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { MedicalhubComponent } from './medicalhub/medicalhub.component';
+import { RegistrationService } from './registration.service';
+import { AuthInterceptor } from './auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { MedicalhubComponent } from './medicalhub/medicalhub.component';
     ContactusComponent,
     TasksComponent,
     MedicalhubComponent,
-
+  
 
   ],
 
@@ -38,10 +41,13 @@ import { MedicalhubComponent } from './medicalhub/medicalhub.component';
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    FormsModule,
-   
+ 
   ],
-  providers: [],
+  providers: [RegistrationService,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ContactusComponent } from './contactus/contactus.component';
-import { LandingComponent } from './landing/landing.component';
 import { TasksComponent } from './tasks/tasks.component';
 import  {MedicalhubComponent } from './medicalhub/medicalhub.component';
 
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path:'profile/:user.id', component: ProfileComponent },
   { path: 'tasks', component: TasksComponent },
   { path: 'medicalhub', component: MedicalhubComponent },
-]
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

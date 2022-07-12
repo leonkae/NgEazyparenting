@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
     this.registerService.userLogin(credentials).subscribe(user => {
-      console.log(user)
-      this.router.navigate(["profile/"+ user.id ])
+      console.log(user.id)
+      this.router.navigate(["profile/"+ user.id])
     })
 
   }
