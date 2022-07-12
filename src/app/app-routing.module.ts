@@ -16,11 +16,13 @@ const routes: Routes = [
   {
     path:'profile/:id', component: ProfileComponent
   },
-  
+  { 
+    path: 'landing', component: LandingComponent 
+  },
+  { 
+    path:'landing/contactus', component:ContactusComponent
+  },
 
-  { path: 'landing', component: LandingComponent },
-
-  { path:'landing/contactus', component:ContactusComponent },
 ];
 
 @NgModule({

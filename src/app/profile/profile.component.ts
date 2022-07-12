@@ -12,15 +12,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
+  isAuthenticated:boolean = false;
   @Input() user: any;
   username:string = ""
   email:string = ""
-  name:string = ""
-  date:string = ""
+  bio:string = ""
+  f_name:string = ""
   gender:string = ""
   age:string = ""
   weight:string = ""
-  bloodgroup:string = ""
+  blood_group:string = ""
   image:string = ""
   
   userr :User
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.userrr = this.regService.user.subscribe((data: User) => {
       console.log(data)
       this.userr = data
+      this.isAuthenticated=!this.userr? false : true;
     })
     this.get_profiles()
   }
@@ -45,17 +47,18 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.regService.getCurrentProfile(user.id).subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
   }
   updateo(){
-    this.regService. updateProf(this.profiles)
+    this.regService.updateProf(this.profiles)
   }
   onSubmit() {
     const credentials ={
       username:this.username,
       email:this.email,
-      name:this.name,
+      bio:this.bio,
+      f_name:this.f_name,
       gender:this.gender,
       age:this.age,
       weight:this.weight,
-      bloodgroup:this.bloodgroup,
+      blood_group:this.blood_group,
       image:this.image,
     }
     this.profService.getProf().subscribe(user => {
@@ -70,5 +73,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.userrr.unsubscribe()
   }
 
-
+  onLogout(){
+    this.regService.logout();
+  }
 }

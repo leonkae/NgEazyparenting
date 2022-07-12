@@ -1,5 +1,6 @@
-
+<a class="nav-link mr-30" style=" cursor: pointer" id="nav-link" (click)="onLogout()" >Logout</a >
  <div class="row" *ngIf="profiles">
+  
   <div class="col-md-1"></div>
   <div class=" col-md-4">
     <h5 class="heading">Personal Information</h5>
@@ -92,26 +93,21 @@
   <div style="margin-top: 30px; margin-left: 90px" class="row">
     
     <div class="col-lg-6 col-md-6 col-sm-12">
-      <div class="prof-body">
-        <form
-          style="color: #000000"
-          action=""
-          method="post"
-          enctype="multipart/form-data"
-        >
+      <div class="profile-body">
+        <form style="color: #000000"  [formGroup]="updateo" (ngSubmit)="onSubmit()" >
         <div class="form-group">
           <label for="bio">Bio</label>
-          <input type="text" class="form-control" name="bio" id="bio" placeholder="Bio" formControlName="bio">
+          <input type="text" class="form-control" name="bio" id="bio" placeholder="bio" formControlName="bio">
         </div>
         <div class="form-group">
-          <label for="phone-number">Phone number</label>
-          <input type="number" class="form-control" name="phone-number" id="phone-number" placeholder="Phone number" formControlName="phone-number">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="email" formControlName="email">
         </div>
           
           <div class="form-group text-center mt-4">
-            <button class="btn btn-primary" type="submit" >  Update Profile </button>
+            <button class="btn btn-primary" type="submit" >Update Profile </button>
           </div>
-          <input type="hidden" name="next" value="" />
+          <input type="hidden" name="next" value=""/>
         </form>
       </div>
     </div>

@@ -59,6 +59,18 @@ export class RegistrationService {
     localStorage.removeItem("access")
     localStorage.removeItem("refresh")
   }
+  logout(){
+    this.user.next(null)
+    this.removeLocalStorage();
+    this.router.navigate(['/auth'])
+  }
+  removeLocalStorage() {
+    localStorage.removeItem('access');
+    localStorage.removeItem('refresh');
+    localStorage.removeItem('profile');
+    localStorage.removeItem('user');
+    return this.getLocalStorage('access');
+  }
   getProfiles():Observable<Profile[]>{
     return  this.http.get<Profile[]>('http://localhost:8000/accounts/profile')
     // .pipe(
