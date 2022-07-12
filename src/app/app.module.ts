@@ -12,6 +12,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LandingComponent } from './landing/landing.component';
 import { ContactusComponent } from './contactus/contactus.component';
+import { TasksComponent } from './tasks/tasks.component';
+import { MedicalhubComponent } from './medicalhub/medicalhub.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +25,15 @@ import { ContactusComponent } from './contactus/contactus.component';
     ProfileComponent,
     LandingComponent,
     ContactusComponent,
+    TasksComponent,
+    MedicalhubComponent,
+
 
   ],
+
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,

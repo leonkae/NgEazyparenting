@@ -6,6 +6,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { LandingComponent } from './landing/landing.component';
+import { TasksComponent } from './tasks/tasks.component';
+import  {MedicalhubComponent } from './medicalhub/medicalhub.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path:'contactus', component:ContactusComponent },
   { path: 'explorer', component: MedicalHubComponent },
   { path:'profile/:user.id', component: ProfileComponent },
+  { path: 'tasks', component: TasksComponent },
+  { path: 'medicalhub', component: MedicalhubComponent },
 ]
 
 @NgModule({
