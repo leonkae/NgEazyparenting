@@ -1,19 +1,18 @@
 
-
-<!-- <div class="row" *ngIf="profiles">
+ <div class="row" *ngIf="profiles">
   <div class="col-md-1"></div>
   <div class=" col-md-4">
     <h5 class="heading">Personal Information</h5>
-    <div class="card"> -->
-      <!-- <img src="{{ profiles.image }}" alt="{{ profiles.username }}"> -->
-      <!-- <form (ngSubmit)="onSubmit()">
+    <div class="card"> 
+      <img class="rounded-circle" height="200px" width="200px" src="{{ profiles.image }}" alt="{{ profiles.username }}">
+    <form (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label for="image" class="form-file">Profile Image</label>
           <input type="file" class="form-control" name="image" [(ngModel)]="image">
         </div>
         <div class="mb-3">
           <label for="name" class="form-label">Full Name</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="name">
+          <input type="text" class="form-control" value="sth" name="name" [(ngModel)]="name">
         </div>
         <div class="mb-3">
           <label for="username" class="form-label">Username</label>
@@ -66,7 +65,7 @@
 </div>
 <div class="test">
   {{username}}
-</div> -->
+</div> 
 
 <!-- <div class="profiles">
   <ul>
@@ -76,12 +75,15 @@
   </ul>
 </div> -->
 
-<div class="container"  >
+<div class="container" *ngIf="profiles" >
    <div class="profiles">
     <ul>
       <li>
-        <h1>{{profiles.child_p.weight}}</h1>
-        <img src="{{profiles.image.url}}" alt="prof">
+        <h1>{{profiles.bio}}</h1>
+        <h1>{{profiles.user.email}}</h1>
+        <p>{{profiles.user.id}}</p>
+        <h1>{{profiles.user.username}}</h1>
+        
       </li>
     </ul>
   </div> 

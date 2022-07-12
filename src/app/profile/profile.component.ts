@@ -40,7 +40,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   }
 
   get_profiles(){
-    this.regService.getCurrentProfile(this.userr.id).subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
+    const user = JSON.parse(this.regService.getLocalStorage('user'))
+    console.log(user)
+    this.regService.getCurrentProfile(user.id).subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
   }
   updateo(){
     this.regService. updateProf(this.profiles)

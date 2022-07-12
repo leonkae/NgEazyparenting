@@ -3,12 +3,11 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/c
 import { SignupService } from './signup.service';
 import { RegistrationService } from './registration.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
-
-    constructor(private regService:RegistrationService) { }
+    constructor(private regService:RegistrationService, private router:Router) { }
     intercept(
         request: HttpRequest<any>,
         next: HttpHandler
