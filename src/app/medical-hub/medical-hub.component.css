@@ -1,6 +1,71 @@
+/* Intro Section */
+.intro {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --secondary: green;
+}
+
+.intro-txt h4 {
+  text-align: center;
+  margin-right: 30px;
+}
+
+/* .btn2 {
+  padding: 6px 18px;
+  border-radius: 4px;
+  outline: none;
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  animation: rotate 0.4s linear both infinite;
+  font-size: 16px;
+  color: #fff;
+}
+
+@keyframes rotate {
+  100% {
+    filter: hue-rotate(-360deg)
+  }
+} */
+
+.add-modal-btn .fas {
+  font-size: 30px;
+  color: black;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.add-modal-btn {
+  animation: shake 2s cubic-bezier(.36, .07, .19, .97) both infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 /* Post Section */
 .medical-hub{
-  height: 1000px;
+  height: 100%;
   background-color: #f4c7d94f;
 }
 
@@ -20,6 +85,7 @@
   margin-bottom: 40px;
   border-radius:5px;
   padding: 0px;
+  background-color: white;
 }
 
 /* Profile Pic & Username Section */
@@ -128,16 +194,66 @@
   border: 1px solid gray;
 }
 
-.add-comment-btn {
+/* .add-comment-btn {
   border: none;
   border-radius: 5px;
   color: white;
   padding: 8px;
   background-color: black;
-  font-family: 'Charm', 'sans-serif';
   font-weight: bold;
   cursor: pointer;
   width: 100px;
+} */
+
+.add-comment-btn{
+  position: relative;
+  border: none;
+  background-color: black;
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 0.8em 1.8em;
+  cursor:pointer;
+  user-select:none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+.add-comment-btn:hover {
+  transition-duration: 0.1s;
+  background-color: #B6EDD0;
+  color: black;
+}
+
+.add-comment-btn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+.add-comment-btn:active:after {
+  box-shadow: 0 0 0 0 #B6EDD0;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.add-comment-btn:active {
+  top: 1px;
 }
 
 /* COMMENTS MODAL SECTION */

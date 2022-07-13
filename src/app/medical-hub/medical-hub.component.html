@@ -1,144 +1,121 @@
 <div class="medical-hub">
   <div class="container">
-    <h4>Medical Hub</h4>
-
-    <!-- Add Post Button -->
-    <button class="btn btn-lg btn-outline-primary" (click)="openModal(addPost)">ADD POST</button>
-
-     <!-- Add Post Modal -->
-    <ng-template #addPost let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Create New Post</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <div class="intro">
+      <div class="intro-txt">
+        <h4>Medical Hub</h4> 
       </div>
 
-       <!-- UPLOAD POST FORM SECTION-->
-       <div class="modal-body">
-        <!-- <form [formGroup]="formValue" enctype="multipart/form-data"> 
+      <div class="add-modal-btn">
+        <!-- Add Post Button -->
+        <i class="fas fa-plus-circle" (click)="openModal(addPost)"></i>
+        <!-- <button class="btn btn-lg btn-outline-primary" (click)="openModal(addPost)">ADD POST</button> -->
 
-          <div class="form-group">
-            <label>Upload Image</label><br>
-            <input type="file" class="form-control-file" formControlName="image">
+        <!-- Add Post Modal -->
+        <ng-template #addPost let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Create New Post</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
           </div>
 
-          <div class="form-group">
-            <label>Image Caption</label>
-            <textarea type="text" class="form-control" formControlName="caption"></textarea>
-          </div>
+          <!-- UPLOAD POST FORM SECTION-->
+          <div class="modal-body">
+            <div class="form">
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <label for="exampleInputEmail1" class="form-label"> Image </label>
 
-          <button type="submit" class="upload-btn" (click)="addHubPost()">UPLOAD</button>
-        </form> -->
+                <input type="file" name="image" class="form-control mt-2" (change)="uploadFile($event)" />
+                <label style="margin-top: 30px;" for="exampleInputEmail1" class="form-label"> Caption </label>
 
-        <div class="form">
-          <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-            <label for="exampleInputEmail1" class="form-label"> Image </label>
-      
-            <input
-              type="file"
-              name="image"
-              class="form-control mt-2"
-              (change)="uploadFile($event)"
-            />
-            <label for="exampleInputEmail1" class="form-label"> Caption </label>
-      
-            <input
-              [(ngModel)]="description"
-              name="description"
-              class="form-control mt-2"
-              placeholder="add caption"
-            />
-      
-            <div class="buttons-wrapper">
-              <button type="submit" id="btn" class="btn btn-primary">POST</button>
+                <input [(ngModel)]="description" name="description" class="form-control mt-2"
+                  placeholder="add caption" />
+
+                <div class="buttons-wrapper">
+                  <button style="margin-top: 30px; border-radius: 4em; padding: 0.8em 1.8em;" type="submit" id="btn" class="btn btn-primary">POST</button>
+                </div>
+
+              </form>
             </div>
-             
-          </form>
-        </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
+          </div>
+        </ng-template>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
-      </div>
-    </ng-template>
-  
-    <!-- <div class="medicalhub" *ngFor="let post of posts">
-      <h3>{{ post.description }}</h3>
-      <img src="{{post.image}}" alt="Image here">
-     
-    </div> -->
+    </div>
 
     <div class="container posts">
       <div class="row">
-  
-        <div class="col-md-8" *ngFor="let post of posts">
+
+        <div class="col-md-8" id="card" *ngFor="let post of posts" >
           <div class="user-credentials">
             <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
             <p><strong>Username</strong></p>
           </div>
-  
+
           <div class="post-image">
-            <img src="{{post.image}}" alt="Post Image" data-toggle="modal"
-              data-target="#commentsModal" />
+            <img src="{{post.image}}" alt="Post Image" data-toggle="modal" data-target="#commentsModal" />
           </div>
-  
+
           <div class="actions-n-time">
             <div class="actions">
               <div class="likes">
                 <i class="far fa-heart"></i>
                 <p class="like-count"><strong>10</strong></p>
               </div>
-  
+
               <div class="comments">
                 <i class="far fa-comments"></i>
                 <p class="comment-count"><strong>10</strong></p>
               </div>
             </div>
-  
+
             <div class="time">
               <p>Posted <strong>2 hours </strong> ago</p>
             </div>
           </div>
-  
+
           <div class="caption">
             <p>{{ post.description }}</p>
           </div>
-  
+
           <!-- Comments Button -->
           <div class="comments-btn" (click)="open(content)">
             <h6 id="viewComments">View Comments</h6>
           </div>
-  
+
           <!-- Comments Modal Content -->
           <ng-template #content let-modal>
             <div class="com-modal">
               <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Post Comments</h4>
-                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+                <button type="button" class="btn-close" aria-label="Close"
+                  (click)="modal.dismiss('Cross click')"></button>
               </div>
               <div class="modal-body">
                 <div class="comments-section">
                   <img src="../../assets/images/person.jpeg" alt="Profile Image" />
-    
+
                   <div class="comments-info">
                     <div class="username-n-date">
                       <p><strong>Username</strong></p>
                       <p class="date"><strong>08/04/2022</strong></p>
                     </div>
-    
+
                     <p class="comment">Lorem ipsum dolor sit amet, consectetuer adip elit.</p>
                   </div>
                 </div>
-  
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
               </div>
             </div>
           </ng-template>
-  
+
           <hr>
-  
+
           <!-- {% if user.is_authenticated and user.id != post.user.id %} -->
-          
+
           <!-- Post Comment Form -->
           <form action="#" method="POST">
             <!-- {% csrf_token %} -->
@@ -146,9 +123,9 @@
             <button class="add-comment-btn" type="submit">POST</button>
           </form>
           <!-- {% endif %} -->
-  
+
         </div>
-  
+
       </div>
     </div>
   </div>
