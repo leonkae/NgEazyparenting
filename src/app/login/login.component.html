@@ -1,5 +1,33 @@
 <div class="wrapper">
-<div class="container" >
+
+  <div class="login">
+
+    <form class="container" (ngSubmit)="onSubmit()">
+      <div class="logo-info">
+        <img src="../../assets/images/logo_small.png" alt="Logo" />
+        <p class="logo-name">EAZY PARENTING</p>
+      </div>
+
+      <div class="form-group" style="margin-top: 0px;">
+        <label  for="username" class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" [(ngModel)]="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" [(ngModel)]="password">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="auth-login-btn">LOGIN</button>
+      </div>
+
+      <p>Don’t have an account? <span class="redirect-txt"><a href="" routerLink="/signup">SIGN UP</a></span></p>
+    </form>
+
+  </div>
+
+<!-- <div class="container" >
   <div class="row">
     <div class="col-md-4"></div>
     <div class=" col-md-4 card" id="cont">
@@ -21,7 +49,7 @@
 
     <div class="col-md-4"></div>
   </div>
-</div>
+</div> -->
 </div>
 
 
