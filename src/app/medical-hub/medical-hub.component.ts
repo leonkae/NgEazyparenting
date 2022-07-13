@@ -3,6 +3,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { MedicalhubService } from '../medicalhub.service';
 import { Medicalhub } from '../models/Medicalhub';
 import { NgForm } from '@angular/forms';
+import { RegistrationService } from '../registration.service';
 
 @Component({
   selector: 'app-medical-hub',
@@ -23,7 +24,7 @@ export class MedicalHubComponent implements OnInit {
   description: string = ' ';
   selectedImage!: any;
 
-  constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService) {}
+  constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService, private regService: RegistrationService) {}
 
   // constructor(private modalService: NgbModal, private formBuilder:FormBuilder, private hubServervice : HubService) {}
 
@@ -31,7 +32,15 @@ export class MedicalHubComponent implements OnInit {
     this.medicalhubService
       .getMedical()
       .subscribe((posts) => (this.posts = posts));
+
+    // this.get_profiles()
   }
+
+  // get_profiles(){
+  //   const user = JSON.parse(this.regService.getLocalStorage('user'))
+  //   console.log(user)
+  //   this.regService.getCurrentProfile(user.id).subscribe((profiles)=> (console.log(profiles),this.profiles = profiles))
+  // }
 
   uploadFile(event: any): void {
     this.selectedImage = event.target.files[0];
@@ -45,7 +54,7 @@ export class MedicalHubComponent implements OnInit {
     fd.append('description', value.description);
     this.medicalhubService
       .postMedical(fd)
-      .subscribe((posts) => this.posts.unshift(posts));
+      .subscribe((posts) => (console.log(posts), this.posts.unshift(posts)));
     // if (this.posts.length > 10) {
     // }
   }

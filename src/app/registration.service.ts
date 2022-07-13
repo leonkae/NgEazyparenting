@@ -10,6 +10,7 @@ import { Profile } from './models/Profile';
   providedIn: 'root'
 })
 export class RegistrationService {
+  public redirectUrl:string = '';
   url: string = environment.REG_URL;
   prof: string = environment.PROF_URL;
   private messageSource: BehaviorSubject<any> = new BehaviorSubject<any>(null);
@@ -18,6 +19,9 @@ export class RegistrationService {
 
   isloggedin = this._isloggedin.asObservable();
   user = new BehaviorSubject<Userr>(null)
+
+  profiles:any;
+
   constructor(private http: HttpClient, private router: Router) {
     const token = localStorage.getItem('accessToken');
     this._isloggedin.next(!!token)

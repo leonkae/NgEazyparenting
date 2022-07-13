@@ -1,4 +1,4 @@
-import { User } from './User';
+import { Profile } from './Profile';
 
 export interface Medicalhub{
   id: number;
@@ -7,5 +7,5 @@ export interface Medicalhub{
   created?: string;
   modified?: string;
   comments?: string;
-  person_posting?: User;
+  person_posting?: Profile;
 }

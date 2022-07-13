@@ -1,45 +1,58 @@
-<div class="full-body">
-  <div class="container">
-    <div class="task-wrapper">
-      <div class="task-title" *ngIf="tasks">
-        <h1>My tasks</h1>
-      </div>
+<div class="full-body" style="position: relative;">
+  <img src="../../assets/images/task_1.png" alt="Task Background">
 
-      <div class="form">
-        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">
-              Add Task
-            </label>
+  <div class="intro">
+    <div class="intro-txt" style="margin-right: 20px;">
+      <h3>My Tasks</h3> 
+    </div>
 
-            <input
-              [(ngModel)]="taskname"
-              name="taskname"
-              class="form-control mt-2"
-              id="taskname"
-              placeholder="Enter task name"
-            />
+    <div class="add-modal-btn">
+      <!-- Add Task Button -->
+      <i class="fas fa-plus-circle" (click)="openModal(addPost)"></i>
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="openModal(addPost)">ADD POST</button> -->
 
-            <input
-              [(ngModel)]="taskdescription"
-              name="taskdescription"
-              class="form-control mt-2"
-              id="taskname"
-              placeholder="Enter Task description"
-            />
+      <!-- Add Task Modal -->
+      <ng-template #addPost let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Create New Task</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
 
-            <div class="buttons-wrapper">
-              <button type="submit" id="btn" class="btn btn-primary">
-                add
-              </button>
-            </div>
+        <!-- UPLOAD POST FORM SECTION-->
+        <div class="modal-body">
+          <div class="form">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <label for="exampleInputEmail1" class="form-label" style="font-size: 18px;"> Task Name </label> 
+                <input [(ngModel)]="taskname" name="taskname" class="form-control mt-2" id="taskname" class="form-control mt-2" />
+                 
+                <label style="margin-top: 30px;" for="exampleInputEmail1" class="form-label"> Task Description </label>
+                <input [(ngModel)]="taskdescription" name="taskdescription" class="form-control mt-2" id="taskdescription" />
+    
+                <div class="buttons-wrapper">
+                  <button style="margin-top: 30px; border-radius: 4em; padding: 0.8em 1.8em;" type="submit" id="btn" class="btn btn-primary" (click)="modal.close('Save click')">ADD TASK</button>
+                </div>
+            </form>
           </div>
-        </form>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CLOSE</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
 
-      <div class="task-detail" *ngFor="let task of tasks">
-        <h3>{{ task.taskname }}</h3>
-        <p>{{ task.taskdescription }}</p>
+  <div class="container">
+    
+    <div class="container task-wrapper">
+      <div class="row">
+        <div class="col-md-5 task-detail" *ngFor="let task of tasks">
+          <ul>
+            <li>
+              <h3>{{ task.taskname }}</h3>
+              <p>{{ task.taskdescription }}</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>

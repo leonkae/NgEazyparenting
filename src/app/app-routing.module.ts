@@ -9,6 +9,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { TasksComponent } from './tasks/tasks.component';
 import  {MedicalhubComponent } from './medicalhub/medicalhub.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path:'signup', component: SignupComponent },
   { path:'contactus', component:ContactusComponent },
   { path: 'explorer', component: MedicalHubComponent },
-  { path:'profile/:user.id', component: ProfileComponent },
+  { path:'profile/:user.id', component: ProfileComponent, },
   { path: 'tasks', component: TasksComponent },
   { path: 'medicalhub', component: MedicalhubComponent },
   { path: 'contacts', component: ContactsComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard]
 })
 
 export class AppRoutingModule { }

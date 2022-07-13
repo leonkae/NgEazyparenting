@@ -1,17 +1,16 @@
-<a class="nav-link mr-30" style=" cursor: pointer" id="nav-link" (click)="onLogout()" >Logout</a >
- <div class="row" *ngIf="profiles">
+<div class="row" *ngIf="profiles">
 
   <div class="hood-info">
     <img src="{{ profiles.image }}" alt="{{ profiles.user.username }}">
 
     <h3>{{profiles.user.username}}</h3>
-    <p style="margin-bottom: 30px;">My Bio</p>
+    <p style="margin-bottom: 30px;">{{ profiles.bio }}</p>
 
     <a id="btn" class="exploreBtn" href="">EDIT PROFILE</a>
 
   </div>
 
-  <div class="container profile-info">
+  <!-- <div class="container profile-info">
     <div class=" col-md-4">
       <h5 class="heading">Personal Information</h5>
       <div class="card">
@@ -72,20 +71,9 @@
         </form>
       </div>
     </div>
-  </div>
+  </div> -->
 
 </div>
 
 <script src="./assets/js/script.js"></script>
-
-<!-- <h1>{{profile.image}}</h1>
-<h1>sth</h1>
-
-<div class="profiles">
-  <ul>
-    <li>
-      <h1>{{profile.image}}</h1>
-    </li>
-  </ul>
-</div> -->
 
