@@ -1,12 +1,13 @@
 <div class="row" *ngIf="profiles">
 
-  <div class="container hood-info">
+  <div class="hood-info">
     <img src="{{ profiles.image }}" alt="{{ profiles.user.username }}">
 
     <h3>{{profiles.user.username |titlecase}}</h3>
+    <p style="margin-bottom: 10px;">{{ profiles.user.email }}</p>
     <p style="margin-bottom: 30px;">{{ profiles.bio }}</p>
 
-    <a id="btn" class="exploreBtn" href="">EDIT PROFILE</a>
+    <a id="prof-btn" class="exploreBtn" href="">EDIT PROFILE</a>
 
   </div>
 
@@ -18,11 +19,11 @@
     
   </div> -->
 
-  <!-- <div class="container profile-info">
+  <div class="container profile-info">
     <div class=" col-md-4">
       <h5 class="heading">Personal Information</h5>
       <div class="card">
-        <img class="rounded-circle" height="200px" width="200px" src="{{ profiles.image }}" alt="{{ profiles.username }}">
+        <img class="rounded-circle" height="150px" width="150px" src="{{ profiles.image }}" alt="{{ profiles.username }}">
         
         <form (ngSubmit)="onSubmit()">
           <div class="mb-3">
@@ -30,18 +31,14 @@
             <input type="file" class="form-control" name="image" [(ngModel)]="image">
           </div>
           <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" value="sth" name="name" [(ngModel)]="name">
-          </div>
-          <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="username">
+            <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="{{ profiles.user.username }}">
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" name="email" [(ngModel)]="email">
+            <input type="email" class="form-control" name="email" [(ngModel)]="email" placeholder="{{profiles.user.email}}">
           </div>
-          <button type="submit" class="btn">EDIT PERSONAL PROFILE</button>
+          <button style="margin-top: 20px;" type="submit" class="btn">EDIT PERSONAL PROFILE</button>
         </form>
       </div>
     </div>
@@ -53,33 +50,29 @@
         <form (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="name" class="form-label">Full name</label>
-            <input type="text" name="name" class="form-control" [(ngModel)]="name">
-          </div>
-          <div class="mb-3">
-            <label for="date" class="form-label">Date of Birth</label>
-            <input type="date" name="date" class="form-control" [(ngModel)]="date">
+            <input type="text" name="name" class="form-control" [(ngModel)]="name" placeholder="{{profiles.child_p.f_name}}">
           </div>
           <div class="mb-3">
             <label for="gender" class="form-label">Gender</label>
-            <input type="text" name="gender" class="form-control" [(ngModel)]="gender">
+            <input type="text" name="gender" class="form-control" [(ngModel)]="gender" placeholder="{{profiles.child_p.gender}}">
           </div>
           <div class="mb-3">
             <label for="age" class="form-label">Age</label>
-            <input type="number" name="age" class="form-control" [(ngModel)]="age">
+            <input type="number" name="age" class="form-control" [(ngModel)]="age" placeholder="{{profiles.child_p.age}}">
           </div>
           <div class="mb-3">
             <label for="weight" class="form-label">Weight</label>
-            <input type="text" name="weight" class="form-control" [(ngModel)]="weight">
+            <input type="text" name="weight" class="form-control" [(ngModel)]="weight" placeholder="{{profiles.child_p.weight}}">
           </div>
           <div class="mb-3">
             <label for="bloodgroup" class="form-label">Blood Group</label>
-            <input type="text" name="bloodgroup" class="form-control" [(ngModel)]="bloodgroup">
+            <input type="text" name="bloodgroup" class="form-control" [(ngModel)]="bloodgroup" placeholder="{{profiles.child_p.blood_group}}">
           </div>
-          <button type="submit" class="btn">EDIT BABY INFO</button>
+          <button style="margin-top: 20px;" type="submit" class="btn">EDIT BABY INFO</button>
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
 
 </div>
 

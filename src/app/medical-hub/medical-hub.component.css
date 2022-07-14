@@ -243,7 +243,7 @@
 }
 
 .add-comment-btn:active:after {
-  box-shadow: 0 0 0 0 #B6EDD0;
+  box-shadow: 0 0 0 0 #b6edd071;
   position: absolute;
   border-radius: 4em;
   left: 0;
@@ -258,7 +258,7 @@
 
 /* COMMENTS MODAL SECTION */
 .com-modal {
-  background-color: #eaf4fc96;
+  background-color: #b6edd04e;
 }
 
 /* The Modal (background) */
@@ -346,8 +346,14 @@
   padding-left: 30px;
   padding-right: 30px;
   display: flex;
+  flex-direction: column;
   margin-bottom: 20px;
 }
+
+/* .all-comments {
+  display: flex;
+  flex-direction: column;
+} */
 
 .comments-section img {
   border-radius: 50%;
@@ -357,7 +363,7 @@
 }
 
 .comments-info {
-  width: 600px;
+  width: 100%;
 }
 
 .comments-info .comment {

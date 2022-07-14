@@ -1,9 +1,11 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { MedicalhubService } from '../medicalhub.service';
 import { Medicalhub } from '../models/Medicalhub';
 import { NgForm } from '@angular/forms';
 import { RegistrationService } from '../registration.service';
+import { CommentsService } from '../comments.service';
+import { Comment } from 'src/app/models/Comments'
 
 @Component({
   selector: 'app-medical-hub',
@@ -16,6 +18,8 @@ import { RegistrationService } from '../registration.service';
   `]
 })
 export class MedicalHubComponent implements OnInit {
+  @Input() post!: any
+
   closeResult = '';
   // formValue !: FormGroup;
   // medicalHubObj : MedicalHub = new MedicalHub()
@@ -24,8 +28,10 @@ export class MedicalHubComponent implements OnInit {
   description: string = ' ';
   selectedImage!: any;
   username: any;
+  comments: Comment[] = [];
+  comment: string =""
 
-  constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService, private regService: RegistrationService) {}
+  constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService, private regService: RegistrationService, private commentService: CommentsService) {}
 
   // constructor(private modalService: NgbModal, private formBuilder:FormBuilder, private hubServervice : HubService) {}
 
@@ -34,7 +40,10 @@ export class MedicalHubComponent implements OnInit {
       .getMedical()
       .subscribe((posts) => (this.posts = posts));
 
-      this.getName()
+    this.commentService
+    .getComment({}).subscribe(comments => this.comments = comments)
+    
+    this.getName()
     // this.get_profiles()
   }
 
@@ -65,6 +74,20 @@ export class MedicalHubComponent implements OnInit {
       .subscribe((posts) => (console.log(posts), this.posts.unshift(posts)));
     // if (this.posts.length > 10) {
     // }
+  }
+
+  // onSubmit({value,valid}: NgForm){
+  //   value.post_id = this.post.id
+  //   this.commentService
+  //     .postComment(value)
+  //     .subscribe((comment)=> (this.post.comments.unshift(comment)))
+  // }
+
+  sendComment({value,valid}: NgForm){
+    value.post_id = this.post.id
+    this.commentService
+      .postComment(value)
+      .subscribe((comment)=> (this.post.comments.unshift(comment)))
   }
 
   open(content) {

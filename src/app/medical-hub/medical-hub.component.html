@@ -2,7 +2,7 @@
   <div class="container">
     <div class="intro">
       <div class="intro-txt" style="margin-right: 20px;">
-        <h3>Medical Hub</h3> 
+        <h3>Medical Hub</h3>
       </div>
 
       <div class="add-modal-btn">
@@ -25,10 +25,11 @@
                 <input type="file" name="image" class="form-control mt-2" (change)="uploadFile($event)" />
 
                 <label style="margin-top: 30px;" for="exampleInputEmail1" class="form-label"> Caption </label>
-                <input [(ngModel)]="description" name="description" class="form-control mt-2"/>
+                <input [(ngModel)]="description" name="description" class="form-control mt-2" />
 
                 <div class="buttons-wrapper">
-                  <button style="margin-top: 30px; border-radius: 4em; padding: 0.8em 1.8em;" type="submit" id="btn" class="btn btn-primary" (click)="modal.close('Save click')">POST</button>
+                  <button style="margin-top: 30px; border-radius: 4em; padding: 0.8em 1.8em;" type="submit" id="btn"
+                    class="btn btn-primary" (click)="modal.close('Save click')">POST</button>
                 </div>
 
               </form>
@@ -44,7 +45,7 @@
     <div class="container posts">
       <div class="row">
 
-        <div class="col-md-8" id="card" *ngFor="let post of posts" >
+        <div class="col-md-8" id="card" *ngFor="let post of posts">
           <div class="user-credentials">
             <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
             <p><strong>{{username | titlecase}}</strong></p>
@@ -61,9 +62,9 @@
                 <p class="like-count"><strong>10</strong></p>
               </div> -->
 
-              <div class="comments">
+              <div class="comments" *ngIf="comments">
                 <i class="far fa-comments"></i>
-                <p class="comment-count"><strong>1</strong></p>
+                <p class="comment-count"><strong>{{post.comments.length}}</strong></p>
               </div>
             </div>
 
@@ -77,7 +78,7 @@
           </div>
 
           <!-- Comments Button -->
-          <div class="comments-btn" (click)="open(content)">
+          <div class="comments-btn" (click)="open(content)" [post]="post">
             <h6 id="viewComments">View Comments</h6>
           </div>
 
@@ -91,16 +92,17 @@
               </div>
               <div class="modal-body">
                 <div class="comments-section">
-                  <img src="../../assets/images/person.jpeg" alt="Profile Image" />
+                  <!-- <img src="../../assets/images/person.jpeg" alt="Profile Image" /> -->
 
-                  <div class="comments-info">
+                  <div class="comments-info"  *ngFor="let comment of post.comments">
                     <div class="username-n-date">
-                      <p><strong>Shalyne</strong></p>
-                      <p class="date"><strong>08/04/2022</strong></p>
+                      <!-- <p><strong>Shalyne</strong></p>
+                      <p class="date"><strong>08/04/2022</strong></p> -->
                     </div>
 
-                    <p class="comment">Lorem ipsum dolor sit amet, consectetuer adip elit.</p>
+                    <p class="comment" style="margin: 10px;">{{comment.comment}}</p>
                   </div>
+
                 </div>
 
               </div>
@@ -112,15 +114,8 @@
 
           <hr>
 
-          <!-- {% if user.is_authenticated and user.id != post.user.id %} -->
-
           <!-- Post Comment Form -->
-          <form action="#" method="POST">
-            <!-- {% csrf_token %} -->
-            <input class="form-control mr-sm-2" type="text" placeholder="Add a comment" name="comment">
-            <button class="add-comment-btn" type="submit">POST</button>
-          </form>
-          <!-- {% endif %} -->
+          <app-comments [post]="post"></app-comments>
 
         </div>
 

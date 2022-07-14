@@ -14,6 +14,20 @@
   margin: 0 auto 20px auto;
 } */
 
+.row {
+  background-color: #b6edd04b;
+}
+
+.card img {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-info {
+  margin-bottom: 60px;
+}
+
 .btn {
   background-color: black;
   color: white;
@@ -37,8 +51,8 @@ form {
   background-color: #f3dce5;
 }
 
-.container {
-  /* width: 500px; */
+.hood-info {
+  width: 500px;
   height: 400px;
   text-align: center;
   margin-top: 70px;

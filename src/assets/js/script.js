@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#btn').click(function(){
+  $('#prof-btn').click(function(){
     alert("sth")
     // $('.profile-info').hide()
   })

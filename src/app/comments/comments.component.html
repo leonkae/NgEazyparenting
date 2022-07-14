@@ -1,20 +1,14 @@
-<p>comments works!</p>
-
 <div class="container">
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <label for="exampleInputEmail1" class="form-label"> Caption </label>
 
     <input
       [(ngModel)]="comment"
       name="comment"
       class="form-control mt-2"
-      placeholder="comment"
+      placeholder="Add a comment"
     
     />
-
-    <div class="buttons-wrapper">
-      <button type="submit" id="btn" class="btn btn-primary">comment</button>
-    </div>
+    <button class="add-comment-btn" type="submit">SEND</button>
   </form>
 
   
