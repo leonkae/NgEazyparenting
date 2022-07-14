@@ -14,20 +14,28 @@ export class MedicalhubService {
   private messageSource: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public message = this.messageSource.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    const token = localStorage.getItem('accessToken');
+  }
 
-  headers = new HttpHeaders().set(
-    'Content-Type',
-    'application/x-www-form-urlencoded;'
-  );
+  httpHeaders: HttpHeaders = new HttpHeaders({
+    Authorization: 'Bearer JWT-token'
+  });
+
+  // headers = new HttpHeaders().set(
+  //   'Content-Type',
+  //   'application/x-www-form-urlencoded;',
+  //   ''
+
+  // );
 
 
   postMedical(medicalhub: any): Observable<Medicalhub> {
     console.log(medicalhub)
-    return this.http.post<Medicalhub>(`${this.url}`, medicalhub);
+    return this.http.post<Medicalhub>(`${this.url}`, medicalhub, { headers: this.httpHeaders });
   }
 
   getMedical(): Observable<Medicalhub[]> {
-    return this.http.get<Medicalhub[]>(`${this.url}`, { headers:this.headers});
+    return this.http.get<Medicalhub[]>(`${this.url}`);
   }
 }

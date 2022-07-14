@@ -1,6 +1,6 @@
 <div class="row" *ngIf="profiles">
 
-  <div class="hood-info">
+  <!-- <div class="hood-info">
     <img src="{{ profiles.image }}" alt="{{ profiles.user.username }}">
 
     <h3>{{profiles.user.username}}</h3>
@@ -8,6 +8,13 @@
 
     <a id="btn" class="exploreBtn" href="">EDIT PROFILE</a>
 
+  </div> -->
+
+  <div class="profile">
+    <img src="{{ profiles.image }}" alt="{{ profiles.user.username }}'s Image">
+    <div class="profile__name">{{profiles.user.username}}</div>
+    <div class="profile__title">{{ profiles.bio }}</div>
+    
   </div>
 
   <!-- <div class="container profile-info">
