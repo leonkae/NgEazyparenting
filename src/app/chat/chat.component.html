@@ -33,7 +33,9 @@
         [darkMode]="true" title="Pick your emoji..." emoji="point_up"></emoji-mart>
     </div>
     <div id="textarea">
-      <textarea [(ngModel)]="message" (keyup.enter)="submitMessage($event)"></textarea>
+      <label for="msg">.
+        <textarea [(ngModel)]="message" (keyup.enter)="submitMessage($event)"></textarea>
+      </label>
     </div>
     <div id="micIcon">
       <img src="../../assets/images/voiceIcon.svg" alt="">
