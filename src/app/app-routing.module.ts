@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { ChatComponent } from './chat/chat.component';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MedicalHubComponent } from './medical-hub/medical-hub.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -11,6 +12,8 @@ import  {MedicalhubComponent } from './medicalhub/medicalhub.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AuthGuard } from './auth.guard';
 import { CommentsComponent } from './comments/comments.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { DirectComponent } from './direct/direct.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -22,8 +25,11 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'medicalhub', component: MedicalhubComponent },
   { path: 'contacts', component: ContactsComponent},
-  { path: 'comments', component: CommentsComponent}
-];
+  { path: 'comments', component: CommentsComponent},
+  { path: 'chat', component: ChatComponent},
+  { path: 'sidebar', component: SidebarComponent},
+  { path: 'direct', component: DirectComponent}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

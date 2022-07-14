@@ -25,6 +25,11 @@ import { CommentsComponent } from './comments/comments.component';
 import { DatecountPipe } from './datecount.pipe';
 import { DatePipe } from './date.pipe';
 import { DatePipeComponent } from './date-pipe/date-pipe.component';
+import { ChatComponent } from './chat/chat.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
+import { PickerModule } from '@ctrl/ngx-emoji-mart';
+import { DirectComponent } from './direct/direct.component';
 
 @NgModule({
   declarations: [
@@ -44,17 +49,22 @@ import { DatePipeComponent } from './date-pipe/date-pipe.component';
     DatecountPipe,
     DatePipe,
     DatePipeComponent,
-
+    ChatComponent,
+    SidebarComponent,
+    DirectComponent,
 
   ],
 
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    FormsModule,
+    PickerModule,
+    CommonModule,
+
   ],
   providers: [RegistrationService,{
     provide:HTTP_INTERCEPTORS,

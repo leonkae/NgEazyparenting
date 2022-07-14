@@ -7,8 +7,6 @@ import { ParentingService } from './parenting.service'
   styleUrls: ['./app.component.css']
 })
 
-
-
 export class AppComponent {
   title = 'eazypfrontend';
   msg: any;
@@ -25,4 +23,5 @@ export class AppComponent {
       console.log(this.msg);
     });
   }
+
 }
