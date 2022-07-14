@@ -47,6 +47,11 @@ export class RegistrationService {
     this._isloggedin.next(true)
   }
 
+  getUsername() {
+    console.log(JSON.parse(localStorage.getItem('user')).token);
+    return JSON.parse(localStorage.getItem('user')).token;
+  }
+
   setToken(token:any){
     localStorage.setItem('access', token.access)
     localStorage.setItem('refresh', token.refresh)
@@ -54,6 +59,10 @@ export class RegistrationService {
   }
   getLocalStorage(key:string):any{
     const item = localStorage.getItem(key);
+    console.log("Item: " + item);
+    console.log("Key: " + key);
+    
+    
     if (key === 'profile' && item!=null) return JSON.parse(item);
     return item
   }

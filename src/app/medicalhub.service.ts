@@ -16,10 +16,12 @@ export class MedicalhubService {
 
   constructor(private http: HttpClient, private router: Router) {
     const token = localStorage.getItem('accessToken');
+    console.log("Storage" + localStorage);
   }
 
   httpHeaders: HttpHeaders = new HttpHeaders({
-    Authorization: 'Bearer JWT-token'
+    Authorization: 'Bearer JWT-token',
+    // Content-Disposition: attachment;
   });
 
   // headers = new HttpHeaders().set(

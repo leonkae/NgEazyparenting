@@ -23,6 +23,7 @@ export class MedicalHubComponent implements OnInit {
   image!: File;
   description: string = ' ';
   selectedImage!: any;
+  username: any;
 
   constructor(private modalService: NgbModal, private medicalhubService: MedicalhubService, private regService: RegistrationService) {}
 
@@ -33,6 +34,7 @@ export class MedicalHubComponent implements OnInit {
       .getMedical()
       .subscribe((posts) => (this.posts = posts));
 
+      this.getName()
     // this.get_profiles()
   }
 
@@ -45,7 +47,13 @@ export class MedicalHubComponent implements OnInit {
   uploadFile(event: any): void {
     this.selectedImage = event.target.files[0];
   }
-
+  
+  getName(){
+    this.username= this.regService.getUsername()
+    console.log(this.username);
+    
+  }
+ 
   onSubmit({ value, valid }: NgForm) {
     const fd = new FormData();
     if (this.selectedImage) {

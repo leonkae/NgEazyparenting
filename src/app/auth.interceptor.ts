@@ -12,8 +12,10 @@ export class AuthInterceptor implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
       ): Observable<HttpEvent<any>> {
-        const token = this.regService.getLocalStorage('accessToken');
-        console.log(token);
+        const token = this.regService.getLocalStorage('access');
+        console.log("Token: "+ token);
+        console.log("Local Storage: " +localStorage);
+        
         if (token) {
           request = request.clone({
             setHeaders: { Authorization: 'Bearer ' + token },

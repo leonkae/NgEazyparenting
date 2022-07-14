@@ -4,8 +4,8 @@ export interface Medicalhub{
   id: number;
   image: File;
   description: string;
-  created?: string;
-  modified?: string;
+  created: string;
+  modified: string;
   // comments?: string;
-  person_posting?: User;
+  person_posting: User;
 }

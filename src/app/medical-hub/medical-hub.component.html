@@ -20,7 +20,7 @@
           <!-- UPLOAD POST FORM SECTION-->
           <div class="modal-body">
             <div class="form">
-              <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <form #f="ngForm" (ngSubmit)="onSubmit(f)" enctype="multipart/form-data">
                 <label for="exampleInputEmail1" class="form-label"> Image </label>
                 <input type="file" name="image" class="form-control mt-2" (change)="uploadFile($event)" />
 
@@ -47,7 +47,7 @@
         <div class="col-md-8" id="card" *ngFor="let post of posts" >
           <div class="user-credentials">
             <a href="#"><img src="../../assets/images/person.jpeg" alt="Profile Image" /></a>
-            <p><strong>{{post.person_posting}}</strong></p>
+            <p><strong>{{username | titlecase}}</strong></p>
           </div>
 
           <div class="post-image">
