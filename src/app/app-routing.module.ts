@@ -10,6 +10,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import  {MedicalhubComponent } from './medicalhub/medicalhub.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AuthGuard } from './auth.guard';
+import { CommentsComponent } from './comments/comments.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'tasks', component: TasksComponent },
   { path: 'medicalhub', component: MedicalhubComponent },
   { path: 'contacts', component: ContactsComponent},
-
+  { path: 'comments', component: CommentsComponent}
 ];
 
 @NgModule({

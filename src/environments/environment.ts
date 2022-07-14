@@ -12,7 +12,8 @@ export const environment = {
   API_URL: 'http://localhost:8000/api',
   TASKS_URL:' http://127.0.0.1:8000/api/tasks/',
   ACCOUNTS_URL : 'http://localhost:8000/accounts',
-  MEDICALHUB: 'http://127.0.0.1:8000/api/explorer/'
+  MEDICALHUB: 'http://127.0.0.1:8000/api/explorer/',
+  COMMENT_URL: 'http://127.0.0.1:8000/api/comment/'
 };
 
 /*

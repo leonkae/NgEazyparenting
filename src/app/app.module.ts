@@ -20,9 +20,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactsComponent } from './contacts/contacts.component';
 // import { ProfilesComponent } from './profiles/profiles.component';
 import { SearchPipe } from './search.pipe';
-
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { CommentsComponent } from './comments/comments.component';
+import { DatecountPipe } from './datecount.pipe';
+import { DatePipe } from './date.pipe';
+import { DatePipeComponent } from './date-pipe/date-pipe.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +39,12 @@ import { SearchPipe } from './search.pipe';
     TasksComponent,
     MedicalhubComponent,
     ContactsComponent,
-    SearchPipe,
-    
+    SearchPipe,   
+    CommentsComponent,
+    DatecountPipe,
+    DatePipe,
+    DatePipeComponent,
+
 
   ],
 
