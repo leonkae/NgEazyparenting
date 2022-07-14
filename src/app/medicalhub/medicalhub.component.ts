@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Medicalhub } from 'src/app/models/Medicalhub';
 import { MedicalhubService } from 'src/app/medicalhub.service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-medicalhub',
@@ -13,6 +14,7 @@ export class MedicalhubComponent implements OnInit {
   image!: File;
   description: string = ' ';
   selectedImage!: any;
+  
 
   constructor(private medicalhubService: MedicalhubService) {}
 
@@ -22,9 +24,15 @@ export class MedicalhubComponent implements OnInit {
       .subscribe((posts) => (this.posts = posts));
   }
 
+  newComment(createdComment:any){
+    // this.posts.comments
+  }
+  
+
   uploadFile(event: any): void {
     this.selectedImage = event.target.files[0];
   }
+
 
   onSubmit({ value, valid }: NgForm) {
     const fd = new FormData();
@@ -35,7 +43,6 @@ export class MedicalhubComponent implements OnInit {
     this.medicalhubService
       .postMedical(fd)
       .subscribe((posts) => this.posts.unshift(posts));
-    // if (this.posts.length > 10) {
-    // }
+    
   }
 }

@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { MedicalhubComponent } from './medicalhub/medicalhub.component';
+import { CommentsComponent } from './comments/comments.component';
+import { DatecountPipe } from './datecount.pipe';
+import { DatePipe } from './date.pipe';
+import { DatePipeComponent } from './date-pipe/date-pipe.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +18,10 @@ import { MedicalhubComponent } from './medicalhub/medicalhub.component';
     ProfilesComponent,
     TasksComponent,
     MedicalhubComponent,
+    CommentsComponent,
+    DatecountPipe,
+    DatePipe,
+    DatePipeComponent,
 
 
   ],
