@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
@@ -10,7 +11,7 @@ export class ChatComponent implements OnInit {
   @Output() onSubmit: EventEmitter<any> = new EventEmitter();
   emojiPickerVisible;
   message = '';
-  time ='564'
+  
 
   constructor() { }
 
